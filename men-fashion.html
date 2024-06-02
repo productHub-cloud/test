@@ -314,14 +314,30 @@ window.onload = function() {
     "img/shop/shop-3.jpg": {
       images: ["img/shop/shop-8.jpg","img/shop/shop-1.jpg"],
       info: "Info about forest image.",
-      title: "Forest",
-      price: "10"
+      title: "T-Shirt And Pant",
+      price: "10",
+      details: {
+      type: "T-Shirt And Pant",
+      size:["M","L","XL"],
+      sizes: ["Length 27, Chest 38", "Length 28, Chest 40", "Length 29, Chest 42"],
+      note: "* ডেলিভারিম্যান থাকা অবস্থায় চেক করে নিবেন।<br>* পছন্দ না হলে অবশ্যই ডেলিভারি চার্জ দিয়ে রিটার্ন করবেন। <br>* ডেলিভারিম্যান চলে আসার পরে কোন ছিড়াফাটা সাইজ মিসটেক থাকলে ডেলিভারি চার্জ দিয়ে এক্সচেঞ্জ করার সুযোগ রয়েছে।",
+      orderLink: "https://chatgpt.com/?oai-dm=1",
+      productDetails:["color:white<br>","degination:bangla","degination:english","degination:hindi"]
+    }
     },
     "img/shop/shop-4.jpg": {
       images: ["img/shop/shop-9.jpg"],
       info: "Info about snow image.",
       title: "Snow",
-      price: "15"
+      price: "15",
+      details: {
+      type: "T-Shirt And Pant",
+      size:["M","L","XL"],
+      sizes: ["Length 27, Chest 38", "Length 28, Chest 40", "Length 29, Chest 42"],
+      note: "* ডেলিভারিম্যান থাকা অবস্থায় চেক করে নিবেন।<br>* পছন্দ না হলে অবশ্যই ডেলিভারি চার্জ দিয়ে রিটার্ন করবেন। <br>* ডেলিভারিম্যান চলে আসার পরে কোন ছিড়াফাটা সাইজ মিসটেক থাকলে ডেলিভারি চার্জ দিয়ে এক্সচেঞ্জ করার সুযোগ রয়েছে।",
+      orderLink: "https://chatgpt.com/?oai-dm=1",
+      productDetails:["color:white<br>","degination:bangla","degination:english","degination:hindi"]
+    }
     },
     "img/shop/shop-5.jpg": {
       images: ["img/shop/shop-9.jpg","img/shop/shop-1.jpg"],
@@ -363,7 +379,7 @@ window.onload = function() {
         imagesHTML += '<div class="info-container">';
         imagesHTML += '<div class="product__item__text">';
         imagesHTML += '<h6><a>' + select_image[images[i]].title + '</a></h6>'; // assuming you want the title inside an anchor tag
-        imagesHTML += '<div class="product__price p-1">' + 'Tk.' +select_image[images[i]].price + '</div>';
+        imagesHTML += '<div class="product__price p-1">' + 'Price.' +select_image[images[i]].price + '</div>';
         
         imagesHTML += '<div>';
         imagesHTML += '<button class="info" onclick="showInfo(' + i + ')">Order Details</button>';
@@ -432,32 +448,59 @@ function showInfo(index) {
   if (selectedImage && selectedImage.info) {
     var modalHTML = '';
     modalHTML += '<div id="infoModal" class="modal">';
-    modalHTML += '<span class="close" onclick="closeInfoModal()">&times;</span>';
     modalHTML += '<div class="modal-content info-modal-content">';
+    modalHTML += '<span class="close" onclick="closeInfoModal()">&times;</span>';
     modalHTML += '<div class="info-container">';
-    modalHTML += '<h3>' + selectedImage.title + '</h3>';
-    modalHTML += '<p>Price: ' + selectedImage.price + '</p>';
-    modalHTML += '<p>' + selectedImage.info + '</p>';
-    // if (images[index] === "img_forest.jpg") {
-      modalHTML += '<table class="table table-dark">';
+    modalHTML += '<p class="product-title">' + selectedImage.title   + '[৳-' + selectedImage.price +']</p>';
+    // modalHTML += '<p class="product-price">৳' + selectedImage.price + '</p>';
+    // modalHTML += '<p>' + selectedImage.info + '</p>';
+ // Adding product details
+ if (selectedImage.details.productDetails && selectedImage.details.productDetails.length > 0) {
+        modalHTML += '<ul class="details-list">';
+        selectedImage.details.productDetails.forEach(function(detail) {
+          modalHTML += '<li>' + detail + '</li>';
+        });
+        modalHTML += '</ul>';
+      }
+    if (selectedImage.details) {
+      modalHTML += '<table class="table">';
       modalHTML += '<thead>';
       modalHTML += '<tr>';
- 
-      modalHTML += '<th scope="col">Last</th>';
-      modalHTML += '<th scope="col">Handle</th>';
+    //   modalHTML += '<th scope="col">Type</th>';
+    //   modalHTML += '<th scope="col">Definition</th>';
       modalHTML += '</tr>';
       modalHTML += '</thead>';
       modalHTML += '<tbody>';
       modalHTML += '<tr>';
-      modalHTML += '<th scope="row">1</th>';
-      modalHTML += '<td>Mark</td>';
-
+      modalHTML += '<th>Product Type :</th>';
+      modalHTML += '<td>' + selectedImage.details.type + '</td>';
       modalHTML += '</tr>';
-  
+      modalHTML += '<tr>';
+  // Loop through sizes and display each size
+  if (selectedImage.details.size && selectedImage.details.sizes && selectedImage.details.size.length === selectedImage.details.sizes.length) {
+        for (let i = 0; i < selectedImage.details.size.length; i++) {
+          modalHTML += '<tr>';
+          modalHTML += '<th>Size - ' + selectedImage.details.size[i] + '</th>';
+          modalHTML += '<td>' + selectedImage.details.sizes[i] + '</td>';
+          modalHTML += '</tr>';
+        }
+      }
+
+
+    //   modalHTML += '<th>Size :</th>';
+    //   modalHTML += '<td>' + selectedImage.details.size + '</td>';
+      modalHTML += '</tr>';
       modalHTML += '</tbody>';
       modalHTML += '</table>';
-    // }
+     
+      modalHTML += '<p class="order-note">' + selectedImage.details.note + '</p>';
+      modalHTML += '<div class="order-link"><b style="font-size: small;">অর্ডার করতে লিঙ্ক এ ক্লিক করুন</b> <a href="' + selectedImage.details.orderLink + '" target="_blank">Click here</a></div>';
+    }
+    // modalHTML += '<p>ডেলিভারিম্যান থাকা অবস্থায় চেক করে নিবেন। পছন্দ না হলে অবশ্যই ডেলিভারি চার্জ দিয়ে রিটার্ন করবেন।ডেলিভারিম্যান চলে আসার পরে কোন ছিড়াফাটা সাইজ মিসটেক থাকলে ডেলিভারি চার্জ দিয়ে এক্সচেঞ্জ করার সুযোগ রয়েছে</p>';
+    // modalHTML += '<b style="font-size: small;">অর্ডার করতে লিঙ্ক এ ক্লিক করুন</b> <a href="https://chatgpt.com/?oai-dm=1" target="_blank">Click here</a>';
+
     modalHTML += '</div>';
+
     modalHTML += '</div>';
     modalHTML += '</div>';
     document.body.insertAdjacentHTML('beforeend', modalHTML);

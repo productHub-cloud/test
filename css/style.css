@@ -63,7 +63,7 @@ h3 {
 }
 
 h4 {
-	font-size: 24px;
+	font-size: 14px;
 }
 
 h5 {
@@ -72,6 +72,71 @@ h5 {
 
 h6 {
 	font-size: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.product-title {
+    font-size: 11px;
+    color: #333;
+    margin-bottom: 7px;
+    font-weight: 700;
+}
+
+.product-price {
+    font-size: 12px;
+    color: #79a1ff;
+    margin-bottom: 11px;
+    font-weight: bold;
+}
+
+.details-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.details-list li {
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 16px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.table td {
+    color: #555;
+    font-size: 14px;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
 }
 
 p {
@@ -1038,7 +1103,7 @@ ol {
 }
 
 .categories__item {
-	height: 130 px;
+	height: 314px;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -1051,8 +1116,8 @@ ol {
 }
 
 .categories__item.categories__large__item {
-	height: 290px;
-	/* padding-left: 70px; */
+	height: 638px;
+	padding-left: 70px;
 }
 
 .categories__item.categories__large__item .categories__text {
@@ -3705,16 +3770,118 @@ ol {
     /* Add any other styles you want to change for smaller screens */
 }
 
+/* Basic modal styling */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+	background-color: white;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 600px;
+	border-radius: 10px;
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  }
+  
+  .close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
+  .product-details h5 {
+	margin-top: 0;
+  }
+  
+  .additional-images {
+	display: flex;
+	gap: 10px;
+	margin: 10px 0;
+  }
+  
+  .additional-image {
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+  }
+  
+  /* Table styling */
+  .table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 15px 0;
+	font-size: 16px;
+  }
+  
+  
+  .table th, .table td {
+    padding: 2%;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 65%;
+}
+  
+  .table th {
+	background-color: #f4f4f4;
+  }
+  
+  .table tr:hover {
+	background-color: #f1f1f1;
+  }
+  
+  /* Order note styling */
+  .order-note-container {
+	margin-top: 15px;
+  }
+  
+  .order-note {
+	background-color: #fffae5;
+	border: 1px solid #ffd700;
+	padding: 10px;
+	border-radius: 5px;
+	font-weight: 900;
+  }
+  
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.8);
+  }
+  .order-link{
+
+		background-color: #fffbeb;
+		border: 1px solid #ff428f;
+		padding: 4px;
+		border-radius: 5px;
+		/* font-weight: 900; */
+	
   }
 
   .modal-content {
@@ -3755,12 +3922,15 @@ ol {
 
   .close {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 30px;
+    top: 8px;
+    right: 11px;
+    font-size: 28px;
     cursor: pointer;
     color: #000;
-  }
+    border: 2px;
+    border-style: hidden;
+    border-radius: 49px;
+}
   .image-container {
 	padding: 10px; /* Adjust the padding value as needed */
   }
@@ -3768,7 +3938,7 @@ ol {
     background-color: #303441;
     border: none;
     color: white;
-    padding: 4px 30px;
+    padding: 4px 9px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
