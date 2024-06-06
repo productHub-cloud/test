@@ -63,7 +63,7 @@ h3 {
 }
 
 h4 {
-	font-size: 14px;
+	font-size: 11px;
 }
 
 h5 {
@@ -1103,21 +1103,88 @@ ol {
 }
 
 .categories__item {
-	height: 314px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	padding-left: 30px;
-	margin-bottom: 10px;
-	margin-right: 10px;
+    height: 154px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: 7px;
+    margin-bottom: 14px;
+    margin-right: 8px;
+    /* font-size: 11px; */
+}
+.trend__content {
+    background: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
+.trend__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.trend__item__pic {
+    width: 30%;
+    margin-right: 20px;
+}
+
+.trend__item__pic img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.trend__item__text {
+    width: 70%;
+}
+
+.trend__item__text h6 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.trend__item__text .rating i {
+    color: #fbc02d;
+    margin-right: 5px;
+}
+
+.trend__item__text .product__price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #e74c3c;
+}
+
+.section-title {
+    margin-bottom: 30px;
+}
+
+.section-title h4 {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.section-title h4::after {
+    content: "";
+    width: 50px;
+    height: 3px;
+    background: #e74c3c;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+}
+
+
 .categories__item.categories__large__item {
-	height: 638px;
-	padding-left: 70px;
+	height: 255px;
+	padding-left: 4px;
 }
 
 .categories__item.categories__large__item .categories__text {
@@ -1133,6 +1200,12 @@ ol {
 	color: #111111;
 	margin-bottom: 5px;
 }
+.logo-image{
+	
+		width: 65%;
+		margin: -16px;
+	
+}
 
 .categories__text h4 {
 	color: #111111;
@@ -1142,11 +1215,16 @@ ol {
 .categories__text p {
 	margin-bottom: 10px;
 }
+@media screen and (max-width:575px) {
+	.categories__text p {
+		max-width: 70%;
+	}
+}
 
 .categories__text a {
-	font-size: 14px;
+	font-size: 8px;
 	color: #111111;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-weight: 600;
 	position: relative;
 	padding: 0 0 3px;
@@ -3472,8 +3550,8 @@ ol {
 		border-radius: 2px;
 		cursor: pointer;
 		position: absolute;
-		right: 15px;
-		top: 24px;
+		right: 42px;
+		top: 41px;
 	}
 	.offcanvas-menu-overlay {
 		position: fixed;
